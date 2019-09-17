@@ -13,9 +13,8 @@ class HeroController extends Controller
    *
    * @return Response
    */
-    public function show($hero)
+    public function show(\App\Hero $hero)
     {
-        $hero = Hero::findOrFail($hero);
         return view('hero', ['hero' => $hero]);
     }
     

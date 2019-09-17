@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class UserController extends Controller
 {
@@ -11,8 +12,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
     
-    public function edit(){
-        $user = Auth::user();
-        return view('user', ['user' => $user]);
+    public function edit(User $user){
+        return view('user', compact('user'));
     }
 }

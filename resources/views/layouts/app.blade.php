@@ -57,7 +57,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('user.edit') }}">{{ __('Manage') }}</a>
+                                    <a class="dropdown-item" href="{{route('user.edit', Auth::user()->id)}}">{{ __('Manage') }}</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
