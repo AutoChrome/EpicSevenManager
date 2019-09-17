@@ -8,11 +8,27 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
-    
-    public function edit(User $user){
-        return view('user', compact('user'));
+
+    public function edit(User $user)
+    {
+        $this->authorize('update', $user);
+        return view('user/edit', compact('user'));
+    }
+
+    public function update(User $user)
+    {
+        $data = request()->validate([
+            'username' => ['string', 'max:255', 'min:6', 'required'], 
+            'ign' => '', 
+            'email' => ['required', 'email'], 
+        ]);
+        
+        auth()->user()->update($data);
+
+        return redirect(route('home'));
     }
 }
