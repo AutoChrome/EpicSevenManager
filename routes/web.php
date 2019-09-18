@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/hero/{hero}', 'HeroController@show')->name('hero.show');
 
 Route::get('/equipment', 'EquipmentController@index')->name('equipment.index');
+Route::get('/equipment/create', 'EquipmentController@create')->name('equipment.create');
+Route::post('/equipment/store', 'EquipmentController@store')->name('equipment.store');
 
 Route::get('/profile/{user}/edit', 'UserController@edit')->name('user.edit');
 Route::patch('/profile/{user}', 'UserController@update')->name('user.update');
